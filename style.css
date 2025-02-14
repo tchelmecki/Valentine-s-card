@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Alex Brush", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 36px;
+}
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100svh;
+    align-items: center;
+    background-color: #ffeef7;
+    position: relative;
+} 
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 50%;
+    text-align: center;
+}
+.envelope{
+    width: 100%;
+    height: 70%;
+    background-color: #f99cce;
+    display: flex;
+    justify-content: center;
+    transition: .3s ease-in-out all;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+}
+.cart{
+    position: absolute;
+    bottom: 0;
+    width: 85%;
+    height: 90%;
+    z-index: 1;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding-top: 40px;
+    transition: .3s ease-in-out all;
+    transition-delay: 0.3s;
+}
+.cart p{
+    margin-bottom: 20px;
+}
+.pieces-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.pieces-wrapper .triangle1{
+    z-index: 2;
+    width: 100%; 
+    height: 100%; 
+    border-left: 250px solid transparent;
+    border-right: 250px solid transparent;
+    border-top: 180px solid #f99cce;
+    transform-origin: 0px 0px;
+    transition: .3s ease-in-out all;
+}
+
+.pieces-wrapper .triangle2{
+    position: absolute;
+    z-index: 4;
+    width: 100%; 
+    height: 100%; 
+    border-left: 250px solid #f782c0;
+    border-right: 250px solid #ff89c8;
+    border-bottom: 180px solid #ff94cd;
+    border-top: 180px solid transparent;
+}
+
+.openLetter{
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.open{
+    transform: translateY(-160px);
+    z-index: 3;
+}
+/*===================BUTTONS==============*/
+.buttons-container{
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease-in-out all;
+}
+button{
+
+    width: 120px;
+    height: 60px;
+    cursor: pointer;
+    background-color:#f782c0;
+    border: none;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    color: #ffeef7;
+}
+
+button:hover{
+    opacity: 90%;
+}
+.no{
+    z-index: 5;
+    transition: .1s ease-in-out all;
+}
+
+/*==================HEART==============*/
+@keyframes go-up {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-250px) scale(1.5); 
+        opacity: 0; 
+    }
+}
+.heart{
+    color: rgb(200, 16, 16);
+    font-size: 24px;
+    position: absolute;
+    opacity: 1;
+    animation: go-up 1.7s ease-in-out forwards;
+
+}
+
+/*=================FOTO===============*/
+.foto1{
+    width: 20%;
+    position: absolute;
+    left: 200px;
+    opacity: 0;
+    transition: .2s ease-in-out all;
+}
+.foto2{
+    width: 20%;
+    position: absolute;
+    right: 200px;
+    opacity: 0;
+    transition: .2s ease-in-out all;
+}
+.iknw{
+    opacity: 0;
+    transition: .2s ease-in-out all;
+}
+.active{
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    overflow: hidden;
+    z-index: 6;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ff5722; 
+    animation: confettiFall 2s ease-out forwards;
+    opacity: 0;
+    border-radius: 5px;
+}
+
+@keyframes confettiFall {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
